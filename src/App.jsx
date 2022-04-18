@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Router } from "./routes/router";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import { Today, TrendingUp, AccountBalance, AttachMoney } from "@mui/icons-material";
 
-import { Box, Toolbar, Drawer, CssBaseline, AppBar, List, Typography, Divider, ListItem, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, Toolbar, Drawer, CssBaseline, AppBar, List, Typography, Divider, ListItem, ListItemIcon, ListItemText, Link,  } from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -13,12 +13,11 @@ export const App = () => {
 			<CssBaseline />
 			<AppBar
 				position="fixed"
-				style={{ backgroundColor: "#1976d2"}}
 				sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
 			>
 				<Toolbar>
 					<Typography variant="h6" noWrap component="div">
-						Core Write Down
+						U Write Down
 					</Typography>
 				</Toolbar>
 			</AppBar>
@@ -34,38 +33,47 @@ export const App = () => {
 				variant="permanent"
 				anchor="left"
 			>
-				<Toolbar style={{ backgroundColor: "#1976d26f"}} />
-
+				<Toolbar>
+					<h4>LOGO</h4>
+				</Toolbar>
 				<Divider />
-
 				<List>
-					<ListItem button key="Dashboard" >
-						<ListItemIcon >
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary="Dashboard" />
-					</ListItem>
+					<Link href="/dashboard">
+						<ListItem button key="Dashboard" >
+							<ListItemIcon >
+								<AccountBalance />
+							</ListItemIcon>
+							<ListItemText primary="Dashboard" />
+						</ListItem>
+					</Link>
 
-					<ListItem button key="Atividades">
-						<ListItemIcon>
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary="Atividades" />
-					</ListItem>
+					<Link  href="activities">
+						<ListItem button key="Activities">
+							<ListItemIcon>
+								<Today />
+							</ListItemIcon>
+							<ListItemText primary="Activities" />
+						</ListItem>
+					</Link>
 
-					<ListItem button key="Finanças" >
-						<ListItemIcon>
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary="Finanças" />
-					</ListItem>
 
-					<ListItem button key="Econômia">
-						<ListItemIcon>
-							<InboxIcon />
-						</ListItemIcon>
-						<ListItemText primary="Econômia" />
-					</ListItem>
+					<Link href="/list/transactions">
+						<ListItem button key="Finances">
+							<ListItemIcon>
+								<AttachMoney />
+							</ListItemIcon>
+							<ListItemText primary="Finances" />
+						</ListItem>
+					</Link>
+
+					<Link href="/economy">
+						<ListItem button key="Economy">
+							<ListItemIcon>
+								<TrendingUp />
+							</ListItemIcon>
+							<ListItemText primary="Economy" />
+						</ListItem>
+					</Link>
 				</List>
 				<Divider />
 			</Drawer>
